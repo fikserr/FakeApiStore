@@ -1,3 +1,71 @@
 .login{
-    
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:cornflowerblue;
+    &__content{
+        padding: 70px 86px;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 800px;
+        border-radius: 10px;
+    }
+    &__title{
+        color: rgb(102, 102, 102);
+        font-family: 'Roboto';
+        font-size: 38px;
+        font-weight: 400;
+        line-height: 29px;
+        padding-bottom: 40px;
+    }
+    &__input{
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 45px;
+
+    }
+    &__text{
+        color: rgb(102, 102, 102);
+        font-family: 'Roboto';
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        text-align: left;
+    }
+    &__username,&__password{
+        width: 650px;
+        height: 48px;
+        font-size: 42px;
+        padding-left: 5px;    
+        color: rgb(102, 102, 102);
+        font-family: 'Roboto';
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        text-align: left;
+        border-radius: 5px;
+
+        
+    }
+
+    &__button{
+        width: 50%;
+        height: 40px;
+        border-radius: 8px;
+        border: none;
+        color: rgb(102, 102, 102);
+        font-family: 'Roboto';
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        transition: 0.5s;
+        &:hover{
+            color: black;
+            background-color: cornflowerblue;
+        }
+    }
 }
