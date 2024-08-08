@@ -1,17 +1,27 @@
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './login.module.scss'
 import { useEffect, useState } from 'react';
-import { getLogin } from '../../store/login';
+import login, { checkLogin, getLogin } from '../../store/login';
+import Admin from '../../layout/admin';
 
 function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { loginUser } = useSelector(state => state.login)
+  const {loginUser,loginCheck} = useSelector(state => state.login)
   const dispatch = useDispatch()
-  console.log(loginUser, username, password);
+ 
+
+  if (loginCheck == true) return <Admin/>
+  function Sign() {
+    dispatch(checkLogin({name:username,pass:password}))
+    setPassword('')
+    setUsername('')
+    
+  }
   useEffect(() => {
     dispatch(getLogin())
-  }, [])
+    console.log(loginUser,loginCheck);
+  }, [username])
   return (
     <div className={styles.login}>
       <div className={styles.login__content}>
@@ -23,7 +33,7 @@ function Login() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-        </div>
+        </div> 
         <div className={styles.login__input}>
           <p className={styles.login__text}>Password</p>
 
@@ -31,11 +41,12 @@ function Login() {
             className={styles.login__password}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete='new-password'
           />
 
         </div>
 
-        <button className={styles.login__button}>Sign in</button>
+        <button className={styles.login__button} onClick={Sign}>Sign in</button>
       </div>
 
 
